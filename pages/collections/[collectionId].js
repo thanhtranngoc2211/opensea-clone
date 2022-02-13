@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { useWeb3 } from '@3rdweb/hooks'
 import { client } from '../../lib/sanityClient'
 import { ThirdwebSDK } from '@3rdweb/sdk'
-import Header from '../../components/Header'
-import { CgWebsite } from 'react-icons/cg'
-import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
-import { HiDotsVertical } from 'react-icons/hi'
-import NFTCard from '../../components/NFTCard'
+//import Header from '../../components/Header'
+//import { CgWebsite } from 'react-icons/cg'
+//import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
+//import { HiDotsVertical } from 'react-icons/hi'
+//import NFTCard from '../../components/NFTCard'
 
 const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -40,14 +40,14 @@ const Collection = () => {
   const [nfts, setNfts] = useState([])
   const [listings, setListings] = useState([])
 
-  //
+  //https://eth-rinkeby.alchemyapi.io/v2/Ms0HQFmZuFaIwARJ6XrwQvVvZ0M0e5qQ
 
   const nftModule = useMemo(() => {
     if (!provider) return
 
     const sdk = new ThirdwebSDK(
       provider.getSigner(),
-      'https://rinkeby.infura.io/v3/a464b9152d8c466c8a94a514fce8e837'
+      'https://eth-rinkeby.alchemyapi.io/v2/Ms0HQFmZuFaIwARJ6XrwQvVvZ0M0e5qQ'
     )
     return sdk.getNFTModule(collectionId)
   }, [provider])
@@ -67,10 +67,10 @@ const Collection = () => {
 
     const sdk = new ThirdwebSDK(
       provider.getSigner(),
-      'https://rinkeby.infura.io/v3/a464b9152d8c466c8a94a514fce8e837'
+      'https://eth-rinkeby.alchemyapi.io/v2/Ms0HQFmZuFaIwARJ6XrwQvVvZ0M0e5qQ'
     )
     return sdk.getMarketplaceModule(
-      '0x93A771F7ce845C33381f677489cF21a5964EDD0b'
+      '0x420C0b759EDFd3A6c42512Ed0c7077610d0B1B41'
     )
   }, [provider])
 
@@ -106,9 +106,9 @@ const Collection = () => {
   useEffect(() => {
     fetchCollectionData()
   }, [collectionId])
-
-  console.log(router.query)
-  console.log(router.query.collectionId)
+//
+  //console.log(router.query)
+  //console.log(router.query.collectionId)
   return (
     <div className="overflow-hidden">
       <Header />
