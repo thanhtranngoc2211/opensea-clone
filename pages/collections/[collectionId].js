@@ -62,7 +62,7 @@ const Collection = () => {
     })()
   }, [nftModule])
 
-  const marketPlaceModule = useMemo(() => {
+  const marketPlaceModule = useEffect(() => {
     if (!provider) return
 
     const sdk = new ThirdwebSDK(
